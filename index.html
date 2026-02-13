@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tendencias de Bases de Datos 2025 - México | Mural Colaborativo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==================== RESET & VARIABLES ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --turquoise: #0f4c5c;
+            --dark-gray: #2d3e4f;
+            --white: #ffffff;
+            --gold: #c7a03e;
+            --soft-yellow: #fef9e7;
+            --yellow-accent: #f9e79f;
+            --green-dark: #2d6a4f;
+            --light-gray: #f8f9fa;
+            --border-color: #e9ecef;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #e9ecef;
+            color: var(--dark-gray);
+            line-height: 1.6;
+            padding: 30px;
+            min-height: 100vh;
+        }
+
+        /* ==================== CONTENEDOR PRINCIPAL ==================== */
+        .mural {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 32px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            padding: 50px;
+            position: relative;
+        }
+
+        /* Efecto pizarra colaborativa - post-its virtuales */
+        .mural::after {
+            content: '📌';
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            font-size: 2rem;
+            opacity: 0.3;
+            transform: rotate(15deg);
+        }
+
+        /* ==================== HEADER ==================== */
+        .mural-header {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--turquoise) 0%, var(--dark-gray) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .mural-badge {
+            display: inline-block;
+            background: var(--yellow-accent);
+            padding: 12px 30px;
+            border-radius: 60px;
+            font-weight: 600;
+            color: var(--dark-gray);
+            border: 2px dashed var(--gold);
+            box-shadow: 0 8px 0 var(--gold);
+            transform: rotate(-1deg);
+        }
+
+        /* ==================== TARJETAS ==================== */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 30px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            border-top: 8px solid;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15);
+        }
+
+        .card-gold { border-top-color: var(--gold); }
+        .card-turquoise { border-top-color: var(--turquoise); }
+        .card-green { border-top-color: var(--green-dark); }
+
+        .card-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            display: inline-block;
+            background: var(--light-gray);
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            text-align: center;
+            border-radius: 20px;
+            transform: rotate(-5deg);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover .card-icon {
+            transform: rotate(0deg);
+        }
+
+        .card-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: var(--dark-gray);
+        }
+
+        .card-example {
+            background: var(--soft-yellow);
+            padding: 20px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--gold);
+        }
+
+        .example-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .example-highlight {
+            background: var(--yellow-accent);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 700;
+        }
+
+        .card-source {
+            font-size: 0.7rem;
+            color: #6c757d;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px dashed var(--border-color);
+        }
+
+        /* ==================== LÍNEA DE TIEMPO ==================== */
+        .timeline {
+            background: linear-gradient(135deg, #1a2e3f 0%, var(--dark-gray) 100%);
+            border-radius: 24px;
+            padding: 40px;
+            margin-bottom: 50px;
+            color: white;
+        }
+
+        .timeline h3 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .timeline-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .timeline-item {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .timeline-year {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--yellow-accent);
+        }
+
+        /* ==================== SECCIÓN DE OPINIÓN ==================== */
+        .opinion-section {
+            background: linear-gradient(135deg, #fef9e7 0%, #fffdf5 100%);
+            border-radius: 24px;
+            padding: 45px;
+            margin-bottom: 40px;
+            border: 2px solid var(--gold);
+            position: relative;
+        }
+
+        .opinion-section::before {
+            content: '💬';
+            position: absolute;
+            top: -20px;
+            left: 30px;
+            background: var(--gold);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 40px;
+            font-size: 1.5rem;
+        }
+
+        .opinion-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark-gray);
+            margin-bottom: 30px;
+        }
+
+        .opinion-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(199, 160, 62, 0.1);
+        }
+
+        .opinion-quote {
+            font-size: 4rem;
+            color: var(--gold);
+            opacity: 0.2;
+            font-family: Georgia, serif;
+            line-height: 0.5;
+        }
+
+        .opinion-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--dark-gray);
+            font-style: italic;
+            margin: 20px 0;
+        }
+
+        .opinion-author {
+            text-align: right;
+            font-weight: 700;
+            color: var(--turquoise);
+            font-size: 1.1rem;
+            border-top: 2px solid #e9ecef;
+            padding-top: 20px;
+            margin-top: 20px;
+        }
+
+        /* ==================== FOOTER ==================== */
+        footer {
+            text-align: center;
+            padding-top: 40px;
+        }
+
+        .student-name {
+            width: 100%;
+            max-width: 500px;
+            padding: 18px 25px;
+            font-size: 1.1rem;
+            border: 3px solid var(--turquoise);
+            border-radius: 60px;
+            text-align: center;
+            margin: 20px auto;
+            font-weight: 600;
+            background: var(--soft-yellow);
+        }
+
+        .footer-note {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            color: #6c757d;
+            font-size: 0.9rem;
+            margin-top: 20px;
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 768px) {
+            body { padding: 15px; }
+            .mural { padding: 30px; }
+            h1 { font-size: 2.2rem; }
+            .timeline-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="mural">
+        <!-- ENCABEZADO CON EFECTO MURAL -->
+        <div class="mural-header">
+            <h1>🧿 TENDENCIAS DE BASES DE DATOS 2025</h1>
+            <div class="mural-badge">
+                🇲🇽 México: País adoptante clave en IA · ILIA 2024
+            </div>
+        </div>
+
+        <!-- TARJETAS PRINCIPALES CON EJEMPLOS REALES DE MÉXICO -->
+        <div class="cards-grid">
+            
+            <!-- TARJETA 1: SALUD + IA -->
+            <div class="card card-gold">
+                <span class="card-icon">🧠</span>
+                <h2 class="card-title">IA Autónoma en Salud</h2>
+                
+                <div class="card-example">
+                    <div class="example-label">📌 CASO MÉXICO · IMSS BIENESTAR</div>
+                    <p style="font-weight: 600; margin-bottom: 10px;">
+                        <span class="example-highlight">13.2 millones</span> de mexicanos viven con diabetes (ENSANUT 2024)
+                    </p>
+                    <p style="font-size: 0.95rem;">
+                        El <strong>IMSS</strong> y el <strong>INSP</strong> implementan modelos predictivos con bases de datos autónomas para identificar pacientes en riesgo hasta 3 años antes del diagnóstico.
+                    </p>
+                </div>
+                
+                <div style="margin-top: 15px;">
+                    <span style="background: #e9ecef; padding: 5px 12px; border-radius: 20px; font-size: 0.8rem;">
+                        🤖 Predicción · Prevención · Medicina personalizada
+                    </span>
+                </div>
+                
+                <div class="card-source">
+                    🔍 Fuentes: ENSANUT 2024, IMSS, ILIA 2024, Gartner 2025
+                </div>
+            </div>
+
+            <!-- TARJETA 2: COMERCIO + NUBE HÍBRIDA -->
+            <div class="card card-turquoise">
+                <span class="card-icon">☁️</span>
+                <h2 class="card-title">Data Fabric · Nube Híbrida</h2>
+                
+                <div class="card-example">
+                    <div class="example-label">📌 CASO MÉXICO · WALMART & SORIANA</div>
+                    <p style="font-weight: 600; margin-bottom: 10px;">
+                        <span class="example-highlight">-20% pérdidas</span> por desabasto en retail
+                    </p>
+                    <p style="font-size: 0.95rem;">
+                        Cadenas como <strong>Walmart México</strong> y <strong>Soriana</strong> usan arquitecturas Data Fabric en AWS/Azure para sincronizar inventario en tiempo real y predecir demanda con 92% de precisión.
+                    </p>
+                </div>
+                
+                <div style="margin-top: 15px;">
+                    <span style="background: #e9ecef; padding: 5px 12px; border-radius: 20px; font-size: 0.8rem;">
+                        🛒 Tiempo real · ROI medible · Omnicanal
+                    </span>
+                </div>
+                
+                <div class="card-source">
+                    🔍 Fuentes: AMVO 2025, Gartner, casos de éxito AWS México
+                </div>
+            </div>
+
+            <!-- TARJETA 3: EDUCACIÓN + OPEN SOURCE -->
+            <div class="card card-green">
+                <span class="card-icon">🐘</span>
+                <h2 class="card-title">PostgreSQL · Open Source</h2>
+                
+                <div class="card-example">
+                    <div class="example-label">📌 CASO MÉXICO · UNAM / TEC DE MTY</div>
+                    <p style="font-weight: 600; margin-bottom: 10px;">
+                        <span class="example-highlight">-15% deserción</span> escolar con analítica predictiva
+                    </p>
+                    <p style="font-size: 0.95rem;">
+                        Plataformas educativas basadas en <strong>PostgreSQL + Python</strong> detectan patrones de riesgo y permiten intervenciones tempranas. El Tec de Monterrey redujo deserción un 15% en 2 años.
+                    </p>
+                </div>
+                
+                <div style="margin-top: 15px;">
+                    <span style="background: #e9ecef; padding: 5px 12px; border-radius: 20px; font-size: 0.8rem;">
+                        🎓 Retención · Personalización · Código abierto
+                    </span>
+                </div>
+                
+                <div class="card-source">
+                    🔍 Fuentes: ANUIES, Tec de Monterrey, PostgreSQL Global Dev Group
+                </div>
+            </div>
+        </div>
+
+        <!-- LÍNEA DE TIEMPO EVOLUTIVA -->
+        <div class="timeline">
+            <h3>📅 Evolución de las Bases de Datos</h3>
+            <div class="timeline-grid">
+                <div class="timeline-item">
+                    <div class="timeline-year">2010</div>
+                    <div style="font-size: 2rem; margin: 10px 0;">📁</div>
+                    <div>SQL · Oracle · DB2</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2015</div>
+                    <div style="font-size: 2rem; margin: 10px 0;">☁️</div>
+                    <div>AWS · Big Data</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2020</div>
+                    <div style="font-size: 2rem; margin: 10px 0;">📊</div>
+                    <div>NoSQL · Machine Learning</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2025</div>
+                    <div style="font-size: 2rem; margin: 10px 0;">🧠</div>
+                    <div>Bases Autónomas · IA</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============ SECCIÓN DE OPINIÓN COLABORATIVA ============ -->
+        <div class="opinion-section">
+            <h2 class="opinion-title">🗣️ Mi opinión · Aporte colaborativo</h2>
+            
+            <div class="opinion-card">
+                <span class="opinion-quote">"</span>
+                <p class="opinion-text">
+                    México no es líder en creación de bases de datos, pero <strong>somos adoptantes estratégicos</strong>. 
+                    El IMSS ya predice diabetes con IA, Walmart México reduce pérdidas con nube híbrida y universidades 
+                    retienen estudiantes con PostgreSQL. El problema no es técnico, es cultural: muchas PyMEs aún ven 
+                    los datos como un gasto, no como un activo. Los casos documentados en 2024-2025 demuestran que 
+                    <strong>la inversión en bases de datos inteligentes ya tiene ROI medible</strong>. Urge escalar estos pilotos 
+                    a política pública, especialmente en salud y educación.
+                </p>
+                <span class="opinion-quote" style="display: block; text-align: right;">"</span>
+                
+                <div class="opinion-author">
+                    — Damaso Alejandro: 220B0143  
+                </div>
+            </div>
+        </div>
+
+        <!-- PIE DE PÁGINA · NOMBRE COMPLETO -->
+        <footer>
+            <div style="font-size: 1.2rem; font-weight: 600; color: var(--turquoise); margin-bottom: 10px;">
+                🖼️ Mural Digital Colaborativo · Bases de Datos 2025
+            </div>
+            
+            <input 
+                type="text" 
+                class="student-name" 
+                value="Damaso Alejandro Garduza Armas"
+                readonly
+            >
+            
+            <div class="footer-note">
+                <span>📌 Actividad A04</span>
+                <span>📅 Febrero 2025</span>
+                <span>✅ Fuentes verificadas · ILIA · Gartner · ENSANUT</span>
+            </div>
+            
+            <div style="margin-top: 30px; font-size: 0.8rem; color: #adb5bd;">
+                *Recurso visual: Infografía interactiva estilo mural · Todos los ejemplos son casos reales documentados en México 2024-2025
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
