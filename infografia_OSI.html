@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía Artística: El Universo OSI</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Condensed:wght@300;700&display=swap');
+
+        :root {
+            --vintage-paper: #f4f1ea;
+            --blueprint-blue: #1a3a5f;
+            --osi-gold: #b8860b;
+            --tech-cyan: #008b8b;
+            --data-orange: #d2691e;
+            --text-dark: #2c3e50;
+            --border-style: 2px solid #34495e;
+        }
+
+        body {
+            background-color: #dcdde1;
+            font-family: 'Roboto Condensed', sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .canvas {
+            width: 100%;
+            max-width: 1100px;
+            background-color: var(--vintage-paper);
+            border: 8px double var(--blueprint-blue);
+            padding: 40px;
+            box-shadow: 20px 20px 0px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        header {
+            text-align: center;
+            border-bottom: var(--border-style);
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3em;
+            color: var(--blueprint-blue);
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        .main-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr 280px;
+            gap: 30px;
+        }
+
+        /* Paneles Laterales Estilo Plano Técnico */
+        .side-panel {
+            background: rgba(26, 58, 95, 0.05);
+            border: 1px solid var(--blueprint-blue);
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .side-panel h3 {
+            font-family: 'Orbitron', sans-serif;
+            background: var(--blueprint-blue);
+            color: white;
+            padding: 5px;
+            font-size: 0.9em;
+            margin-top: 0;
+            text-align: center;
+        }
+
+        /* La Gran Torre OSI */
+        .osi-tower {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .layer-block {
+            display: grid;
+            grid-template-columns: 60px 1fr;
+            background: white;
+            border: var(--border-style);
+            min-height: 80px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 5px 5px 0px var(--blueprint-blue);
+        }
+
+        .layer-block:hover {
+            transform: scale(1.03) translate(-5px, -5px);
+            box-shadow: 10px 10px 0px var(--tech-cyan);
+        }
+
+        .layer-num {
+            background: var(--blueprint-blue);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .layer-content {
+            padding: 10px 20px;
+        }
+
+        .layer-content h2 {
+            margin: 0;
+            color: var(--blueprint-blue);
+            text-transform: uppercase;
+            font-size: 1.2em;
+        }
+
+        .layer-details {
+            font-size: 0.9em;
+            color: var(--text-dark);
+            margin-top: 5px;
+        }
+
+        /* Colores de capas para distinción visual */
+        .app-group { border-color: var(--osi-gold); }
+        .trans-group { border-color: var(--data-orange); }
+        .net-group { border-color: var(--tech-cyan); }
+
+        /* Estilo de PDUs y Protocolos */
+        .pdu-tag {
+            display: inline-block;
+            background: #eee;
+            padding: 2px 8px;
+            font-size: 0.75em;
+            font-weight: bold;
+            border: 1px solid #ccc;
+            margin-top: 5px;
+        }
+
+        .info-box {
+            margin-top: 20px;
+            font-size: 0.85em;
+            line-height: 1.4;
+        }
+
+        footer {
+            margin-top: 40px;
+            border-top: var(--border-style);
+            padding-top: 20px;
+            font-size: 0.8em;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .biblio li { margin-bottom: 5px; }
+
+        @media (max-width: 900px) {
+            .main-layout { grid-template-columns: 1fr; }
+            .side-panel { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="canvas">
+    <header>
+        <h1>Guía Integral: Modelo OSI</h1>
+        <p><strong>Propósito:</strong> Estandarización e Interoperabilidad en las Redes de Datos</p>
+    </header>
+
+    <div class="main-layout">
+        <aside>
+            <div class="side-panel">
+                <h3>Resumen de PDUs</h3>
+                <ul class="info-box">
+                    <li><strong>Capas 5-7:</strong> Datos (Mensaje)</li>
+                    <li><strong>Capa 4:</strong> Segmento / Datagrama</li>
+                    <li><strong>Capa 3:</strong> Paquete</li>
+                    <li><strong>Capa 2:</strong> Trama (Frame)</li>
+                    <li><strong>Capa 1:</strong> Bits</li>
+                </ul>
+                
+                <h3>Beneficios Clave</h3>
+                <ul class="info-box">
+                    <li>✓ Diseño modular y flexible.</li>
+                    <li>✓ Facilita el Troubleshooting.</li>
+                    <li>✓ Desarrollo de capas independiente.</li>
+                    <li>✓ Lenguaje universal técnico.</li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="osi-tower">
+            <div class="layer-block app-group">
+                <div class="layer-num">7</div>
+                <div class="layer-content">
+                    <h2>Aplicación</h2>
+                    <div class="layer-details">Interfaz de usuario, transferencia de archivos, servicios de correo.</div>
+                    <span class="pdu-tag">HTTP, FTP, SMTP, DNS, SSH</span>
+                </div>
+            </div>
+
+            <div class="layer-block app-group">
+                <div class="layer-num">6</div>
+                <div class="layer-content">
+                    <h2>Presentación</h2>
+                    <div class="layer-details">Formateo de datos, Cifrado (SSL/TLS) y Compresión.</div>
+                    <span class="pdu-tag">JPEG, GIF, MPEG, ASCII</span>
+                </div>
+            </div>
+
+            <div class="layer-block app-group">
+                <div class="layer-num">5</div>
+                <div class="layer-content">
+                    <h2>Sesión</h2>
+                    <div class="layer-details">Control de diálogo, establecimiento y cierre de conexiones.</div>
+                    <span class="pdu-tag">NetBIOS, RPC, SQL, NFS</span>
+                </div>
+            </div>
+
+            <div class="layer-block trans-group">
+                <div class="layer-num">4</div>
+                <div class="layer-content">
+                    <h2>Transporte</h2>
+                    <div class="layer-details">Comunicación host-host, control de flujo y errores.</div>
+                    <span class="pdu-tag">TCP (Confiable), UDP (Rápido)</span>
+                </div>
+            </div>
+
+            <div class="layer-block net-group">
+                <div class="layer-num">3</div>
+                <div class="layer-content">
+                    <h2>Red</h2>
+                    <div class="layer-details">Enrutamiento lógico, direccionamiento IP y mejor ruta.</div>
+                    <span class="pdu-tag">IPv4, IPv6, ICMP, OSPF, BGP</span>
+                </div>
+            </div>
+
+            <div class="layer-block net-group">
+                <div class="layer-num">2</div>
+                <div class="layer-content">
+                    <h2>Enlace de Datos</h2>
+                    <div class="layer-details">Direccionamiento físico (MAC) y acceso al medio.</div>
+                    <span class="pdu-tag">Ethernet, Wi-Fi, Switches, ARP</span>
+                </div>
+            </div>
+
+            <div class="layer-block net-group">
+                <div class="layer-num">1</div>
+                <div class="layer-content">
+                    <h2>Física</h2>
+                    <div class="layer-details">Transmisión de bits por cableado, voltajes y conectores.</div>
+                    <span class="pdu-tag">Cables RJ45, Fibra, Hubs, Antenas</span>
+                </div>
+            </div>
+        </main>
+
+        <aside>
+            <div class="side-panel">
+                <h3>Breve Historia</h3>
+                <p class="info-box">
+                    Propuesto por la <strong>ISO</strong> en 1978 y finalizado en 1984 como el estándar <strong>ISO 7498</strong>. Nació para resolver la guerra de marcas donde IBM y DEC no eran compatibles.
+                </p>
+
+                <h3>Datos de Interés</h3>
+                <p class="info-box">
+                    <strong>Independencia:</strong> Puedes cambiar el cable (Capa 1) sin afectar tu app de música (Capa 7).<br><br>
+                    <strong>Encapsulamiento:</strong> Proceso de añadir cabeceras a los datos al bajar por la torre.
+                </p>
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <div class="biblio">
+            <strong>Referencias Bibliográficas:</strong>
+            <ul>
+                <li>Tanenbaum, A. S. (2021). <i>Redes de Computadoras</i> (6ª ed.). Pearson.</li>
+                <li>Cisco Networking Academy. (2020). <i>Guía CCNA v7</i>. Cisco Press.</li>
+            </ul>
+        </div>
+        <div style="text-align: right;">
+            <p><strong>Diseñado con Entusiasmo por:</strong> Damaso Alejandro Garduza Armas</p>
+            <p>Instituto Tecnológico Campus Acayucan</p>
+        </div>
+    </footer>
+</div>
+
+</body>
+</html>
